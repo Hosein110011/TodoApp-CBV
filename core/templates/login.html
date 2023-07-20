@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title><h1>Registration</h1></title>
+<form method='get'>{% csrf_token %}</form>    
+<body>
+    <form action= "http://127.0.0.1:8000/accounts/login/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <input type="submit" value="Login">
+    </form>
+    <form action="/accounts/registration/" method='get'>{% csrf_token %}
+        <p>if you dont have any account please register at first. </p>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

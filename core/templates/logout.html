@@ -1,0 +1,13 @@
+{% comment %} <form action="/accounts/login/" method="get">{% csrf_token %} {% endcomment %}
+     
+
+ 
+ 
+    <p>Are you sure you want to logout?</p>
+     
+{% comment %} </form>      {% endcomment %}
+     
+<form action="/accounts/logout/" method="post">{% csrf_token %}
+
+    <input type="submit" value="yes">
+</form>

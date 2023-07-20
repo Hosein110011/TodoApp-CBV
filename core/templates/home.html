@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <form action="/accounts/logout/" , method='get'>{% csrf_token %}
+            <input  type="submit" value="Logout">
+        </form> 
+        <div>
+        {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+    <div>
+        <form action= "http://127.0.0.1:8000/tasks/" method="post" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="add" >
+            
+        </form>
+    </div>
+    
+    <br>
+    <hr>
+    <div>
+    <ul>
+    {% for task in tasks %}
+        <li><a href="detail/{{task.pk}} ">{{ task.title }}</a></li>
+    {% empty %}
+        <li>No task have been added yet.</li>
+    {% endfor %}
+    </ul>
+    </div>
+    </body>
+</html>

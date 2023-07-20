@@ -1,0 +1,20 @@
+<div>
+  <ul>
+ 
+      <li>title : {{ title }}</li>
+      <li>category : {{ category }}</li>
+      <li>is_complete : {{ is_complete }}</li>
+      <li>start_time : {{ start_time }}</li>
+      <li>end_time : {{ end_time }}</li>
+      <li>description : {{ description }}</li>
+      <li>created_time : {{ created_time }}</li>
+      <li>updated_time : {{ updated_time }}</li>
+
+  </ul>
+</div>
+<form action="" method='post'>{% csrf_token %}
+<input  type="submit" value="Update" >
+</form>
+<form action="/tasks/delete/{{pk}}/">{% csrf_token %}
+<input  type="submit" value="Delete">
+</form>
